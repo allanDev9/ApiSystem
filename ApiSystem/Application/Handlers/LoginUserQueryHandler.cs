@@ -12,7 +12,7 @@ namespace ApiSystem.Application.Handlers
 
         public LoginUserQueryHandler(ApplicationDbContext dbContext)
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext; 
         }
 
         public async Task<UserDto> Handle(LoginUserQuery request, CancellationToken cancellationToken)
