@@ -26,13 +26,6 @@ namespace ApiSystem.Application.Handlers
                 return null;
             }
 
-            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(request.Password, user.password);
-
-            if (!isPasswordValid)
-            {
-                return null;
-            }
-
             return new UserDto
             {
                 id = user.id,

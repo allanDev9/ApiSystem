@@ -5,12 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// mysql://root:tPQuJeRIkGPqdwATFYhunIKbkyonFiZW@shinkansen.proxy.rlwy.net:44516/railway = Conecxion a Railway
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
          builder =>
          {
-             builder.WithOrigins("http://localhost:5173") // Replace with your actual frontend URL
+             builder.WithOrigins("http://localhost:5173") // frontend URL
                     .AllowAnyMethod()
                     .AllowAnyHeader();
          });

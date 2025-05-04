@@ -16,15 +16,14 @@ namespace ApiSystem.Application.Handlers
         }
 
         public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
-        {
-            var hashadedPassword = BCrypt.Net.BCrypt.HashPassword(request.password);
+        { 
 
             var user = new User
             {
                 id = request.id,
                 name = request.name,
                 username = request.username,
-                password = hashadedPassword
+                password = request.password
             };
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync(cancellationToken);
