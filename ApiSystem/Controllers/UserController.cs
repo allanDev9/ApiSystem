@@ -23,10 +23,10 @@ namespace ApiSystem.Controllers
         {
             return await _mediator.Send(new GetAllUsersQuery());
         }
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserDto>> GetById(int id)
+        [HttpGet("{username}")]
+        public async Task<ActionResult<UserDto>> GetById(string username)
         {
-            var user = await _mediator.Send(new GetUserByIdQuery(id));
+            var user = await _mediator.Send(new GetUserByUsernameQuery (username));
 
             if (user == null)
             {
