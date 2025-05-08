@@ -18,7 +18,7 @@ namespace ApiSystem.Application.Handlers
         public async Task<UserDto> Handle(LoginUserQuery request, CancellationToken cancellationToken)
         {
             var user = await _dbContext.Users
-                .Where(u => u.username == request.Username)
+                .Where(u => u.username == request.Username && u.password == request.Password)
                 .FirstOrDefaultAsync(cancellationToken);
 
             if (user == null)

@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
          builder =>
          {
-             builder.WithOrigins("http://localhost:5173") // frontend URL
+             builder.WithOrigins("https://mi-tiendita-app.netlify.app/","http://localhost:5173") // frontend URL
                     .AllowAnyMethod()
                     .AllowAnyHeader();
          });
@@ -21,8 +21,8 @@ builder.Services.AddCors(options =>
 var connectionString = builder.Configuration.GetConnectionString("Connection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
- );
+    options.UseNpgsql(connectionString)
+);
 
 builder.Services.AddMediatR(cfg => 
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));

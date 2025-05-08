@@ -20,7 +20,6 @@ namespace ApiSystem.Application.Handlers
 
             var user = new User
             {
-                id = request.id,
                 name = request.name,
                 username = request.username,
                 password = request.password
