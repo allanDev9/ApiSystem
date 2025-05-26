@@ -5,8 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-// mysql://root:tPQuJeRIkGPqdwATFYhunIKbkyonFiZW@shinkansen.proxy.rlwy.net:44516/railway = Conecxion a Railway
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
@@ -28,9 +26,6 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
